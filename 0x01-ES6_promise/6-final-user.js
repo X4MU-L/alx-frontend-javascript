@@ -8,10 +8,17 @@ export default function handleProfileSignup(firstName, lastName, filename) {
   ]).then((result) => {
     const values = [];
     for (const promise of result) {
-      values.push({
-        status: promise.status,
-        value: promise.value ? promise.value : `${promise.reason}`,
-      });
+      if (promise.status === 'fulfilled') {
+        values.push({
+          status: promise.status,
+          value: promise.value,
+        });
+      } else {
+        values.push({
+          status: promise.status,
+          value: `${promise.reason}`,
+        });
+      }
     }
     return values;
   });

@@ -10,7 +10,7 @@ export default function handleProfileSignup(firstName, lastName, filename) {
     for (const promise of result) {
       values.push({
         status: promise.status,
-        value: promise.value ? promise.value : promise.reason,
+        value: promise.value ? promise.value : `${promise.reason}`,
       });
     }
     return values;

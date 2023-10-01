@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 export default class Airport {
-  constructor(code, name) {
+  constructor(name, code) {
     this.code = code;
     this.name = name;
   }

@@ -6,7 +6,7 @@ export default function cleanSet(setObject, startstring) {
 
   if (setObject instanceof Set) {
     for (const [item] of setObject.entries()) {
-      if (item.startsWith(startstring)) {
+      if (item && item.startsWith(startstring)) {
         result.push(item.slice(startstring.length));
       }
     }

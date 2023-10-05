@@ -19,3 +19,33 @@ const studentsList: Student[] = [
     location: 'Abuja, Nigeria',
   },
 ];
+
+const table = document.createElement('table');
+const tableHead = document.createElement('thead');
+const tableBody = document.createElement('tbody');
+
+tableHead.appendChild(document.createElement('tr'));
+tableHead.querySelector('tr').append(
+  ...['firstName', 'location'].map((text) => {
+    const th = document.createElement('th');
+    th.textContent = text;
+    return th;
+  })
+);
+
+tableBody.append(
+  ...studentsList.map((student) => {
+    const tr = document.createElement('tr');
+    tr.append(
+      ...['firstName', 'location'].map((text: 'firstName' | 'location') => {
+        const td = document.createElement('td');
+        td.textContent = student[text];
+        return td;
+      })
+    );
+    return tr;
+  })
+);
+
+table.append(tableHead, tableBody);
+document.body.append(table);
